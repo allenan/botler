@@ -25,10 +25,18 @@ ActiveRecord::Base.configurations[:test] = {
 
 }
 
-ActiveRecord::Base.configurations[:production] = {
-  :adapter => 'postgresql',
-  :url => ENV['DATABASE_URL']
+if ENV['RACK_ENV'] == 'production'
+  dbconfig = YAML.load(File.read('config/database.yml'))
+  ap dbconfig
+end
 
+ActiveRecord::Base.configurations[:production] = {
+  adapter: 'postgresql',
+  database: dbconfig['database'],
+  host: dbconfig['host'],
+  username: dbconfig['username'],
+  password: dbconfig['password'],
+  encoding: 'utf8'
 }
 
 # Setup our logger
