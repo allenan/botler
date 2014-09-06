@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.1.2'
 
 # Distribute your app as a gem
 # gemspec
@@ -12,6 +13,8 @@ source 'https://rubygems.org'
 
 # Project requirements
 gem 'rake'
+
+gem 'thin'
 
 # Component requirements
 gem 'sass'
