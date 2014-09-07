@@ -27,7 +27,6 @@ ActiveRecord::Base.configurations[:test] = {
 
 if ENV['RACK_ENV'] == 'production'
   db = URI.parse(ENV['DATABASE_URL'])
-  ap db
 
   ActiveRecord::Base.configurations[:production] = {
     adapter: 'postgresql',

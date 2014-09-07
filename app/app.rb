@@ -1,9 +1,18 @@
+require 'bugsnag'
+
+Bugsnag.configure do |config|
+  config.api_key = "8800f360d7bf373ef759289169611cf1"
+end
+
 module Butler
   class App < Padrino::Application
     register ScssInitializer
     use ActiveRecord::ConnectionAdapters::ConnectionManagement
     register Padrino::Mailer
     register Padrino::Helpers
+
+    use Bugsnag::Rack
+    enable :raise_errors
 
     enable :sessions
 

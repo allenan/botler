@@ -16,6 +16,7 @@ gem 'rake'
 
 gem 'thin'
 
+gem 'bugsnag'
 # Component requirements
 gem 'sass'
 gem 'slim'

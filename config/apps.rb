@@ -25,6 +25,7 @@
 # Setup global project settings for your apps. These settings are inherited by every subapp. You can
 # override these settings in the subapps as needed.
 #
+
 Padrino.configure_apps do
   # enable :sessions
   set :session_secret, '2731402a7d042f720dbbe738cb15c6b991a02005bf8cd31f1ad14723cfc5dc1e'
