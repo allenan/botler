@@ -13,7 +13,7 @@ class Sms
       client.messages.create(
         from: '+17042885372',
         to:   '+1' + user.phone,
-        body: message
+        body: @message
       )
     end
   end
