@@ -7,11 +7,12 @@ Butler::App.controllers :twilio do
     def guest?; false; end
   end
 
-  post :voice do
+  before do
     content_type 'text/xml'
-    #ap params
-    @user = User.find_by(phone: params['From'][2..-1]) || UnknownUser.new
+    @user = User.find_by(phone: sanitize_phone(params['From'])) || UnknownUser.new
+  end
 
+  post :voice do
     if @user.resident?
       p "it's a resident"
       Door.open!
@@ -23,5 +24,12 @@ Butler::App.controllers :twilio do
       p "it's unknown"
     end
     render :voice
+  end
+
+  post :sms do
+    if @user.resident?
+      result = CommandInterpreter.parse(params['Body'])
+      Sms.new(to: @user, message: result)
+    end
   end
 end
