@@ -31,6 +31,6 @@ Butler::App.controllers :twilio do
       result = CommandInterpreter.parse(params['Body'])
       Sms.new(to: @user, message: result).send!
     end
-    render ''
+    render :sms
   end
 end
