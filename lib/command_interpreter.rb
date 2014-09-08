@@ -3,7 +3,10 @@ class CommandInterpreter
     def parse(text)
       task_keywords.each do |task, keywords|
         keywords.each do |keyword|
-          perform(task, with: text) if text.include?(keyword)
+          if text.include?(keyword)
+            message = perform(task, with: text)
+            return message
+          end
         end
       end
     end
