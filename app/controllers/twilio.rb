@@ -29,7 +29,7 @@ Butler::App.controllers :twilio do
   post :sms do
     if @user.resident?
       result = CommandInterpreter.parse(params['Body'])
-      Sms.new(to: @user, message: result)
+      Sms.new(to: @user, message: result).send!
     end
   end
 end
