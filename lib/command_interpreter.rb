@@ -1,6 +1,7 @@
 class CommandInterpreter
   class << self
     def parse(text)
+      text = text.downcase
       task_keywords.each do |task, keywords|
         keywords.each do |keyword|
           if text.include?(keyword)

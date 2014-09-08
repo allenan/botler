@@ -18,7 +18,7 @@ module Tasks
     private
 
     def parse_name
-      @text.split(' ')[2..-2].join(' ')
+      @text.split(' ')[2..-2].join(' ').titleize
     end
 
     def parse_phone

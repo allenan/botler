@@ -9,7 +9,7 @@ RSpec.describe CommandInterpreter do
     after { CommandInterpreter.parse(command) }
 
     it "calls the corresponding task" do
-      expect(Tasks::AddUser).to receive(:new).with(command)
+      expect(Tasks::AddUser).to receive(:new).with(command.downcase)
     end
 
     it "calls perform on the task" do
@@ -21,6 +21,18 @@ RSpec.describe CommandInterpreter do
     it "does not call a task" do
       expect(Tasks::AddUser).not_to receive(:new)
       CommandInterpreter.parse("let me in")
+    end
+  end
+
+  context "where command has mixed case keywords" do
+    let(:command) { "Add Guest Tester" }
+    let(:task) { double(:task).as_null_object }
+
+    before { allow(Tasks::AddUser).to receive(:new) { task } }
+    after { CommandInterpreter.parse(command) }
+
+    it "executes the right task" do
+      expect(Tasks::AddUser).to receive(:new).with(command.downcase)
     end
   end
 end
