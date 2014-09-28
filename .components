@@ -7,3 +7,4 @@
 :stylesheet: scss
 :namespace: Butler
 :migration_format: number
+:admin_renderer: slim

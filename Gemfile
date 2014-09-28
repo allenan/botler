@@ -18,6 +18,7 @@ gem 'puma'
 
 gem 'bugsnag'
 # Component requirements
+gem 'bcrypt'
 gem 'sass'
 gem 'slim'
 gem 'erubis', '~> 2.7.0'
