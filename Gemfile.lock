@@ -23,6 +23,9 @@ GEM
     coderay (1.1.0)
     daemons (1.1.9)
     diff-lcs (1.2.5)
+    dotenv (0.11.1)
+      dotenv-deployment (~> 0.0.2)
+    dotenv-deployment (0.0.2)
     erubis (2.7.0)
     eventmachine (1.0.3)
     http_router (0.11.1)
@@ -101,6 +104,8 @@ GEM
     rspec-mocks (3.0.4)
       rspec-support (~> 3.0.0)
     rspec-support (3.0.4)
+    ruby_spark (1.0.0)
+      httparty (~> 0.13)
     sass (3.4.2)
     sinatra (1.4.5)
       rack (~> 1.4)
@@ -138,6 +143,7 @@ DEPENDENCIES
   activerecord (>= 3.1)
   awesome_print
   bugsnag
+  dotenv
   erubis (~> 2.7.0)
   padrino (= 0.12.3)
   pg
@@ -145,6 +151,7 @@ DEPENDENCIES
   rack-test
   rake
   rspec
+  ruby_spark
   sass
   slim
   sqlite3

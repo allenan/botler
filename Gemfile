@@ -25,6 +25,7 @@ gem 'activerecord', '>= 3.1', :require => 'active_record'
 
 group :development, :test do
   gem 'sqlite3'
+  gem 'dotenv'
 end
 
 group :production do
@@ -42,6 +43,7 @@ gem 'twilio-ruby'
 
 gem 'awesome_print'
 gem 'pry'
+gem 'ruby_spark'
 
 # Or Padrino Edge
 # gem 'padrino', :github => 'padrino/padrino-framework'
