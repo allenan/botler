@@ -12,7 +12,7 @@ require 'rubygems' unless defined?(Gem)
 require 'bundler/setup'
 Bundler.require(:default, RACK_ENV)
 
-Dir["#{PADRINO_ROOT}/jobs/sms_job.rb"].each {|file| require file }
+Dir["#{PADRINO_ROOT}/jobs/**/*.rb"].each {|file| require file }
 
 ##
 # ## Enable devel logging
