@@ -10,7 +10,7 @@ class DoorObserverJob
           actor = door_open_event.actor
           Sms.new(
             to: all_residents_except(actor),
-            message: "#{actor.name} opened the door"
+            message: "#{actor.first_name} opened the door"
           ).send!
           break
         end

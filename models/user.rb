@@ -8,6 +8,10 @@ class User < ActiveRecord::Base
     "Hey there, #{name}!"
   end
 
+  def first_name
+    name.split(' ').first
+  end
+
   private
   def sanitize_phone
     self.phone = phone.gsub(/[^\d]/, '').gsub(/^1/, '') if self.phone
