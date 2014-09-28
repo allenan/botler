@@ -14,7 +14,7 @@ ruby '2.1.2'
 # Project requirements
 gem 'rake'
 
-gem 'thin'
+gem 'puma'
 
 gem 'bugsnag'
 # Component requirements
@@ -44,6 +44,8 @@ gem 'twilio-ruby'
 gem 'awesome_print'
 gem 'pry'
 gem 'ruby_spark'
+
+gem 'sucker_punch'
 
 # Or Padrino Edge
 # gem 'padrino', :github => 'padrino/padrino-framework'

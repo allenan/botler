@@ -7,7 +7,7 @@ class Door
     Sms.new(
       to: User.resident,
       message: "Someone just rang the doorbell"
-    ).send!
+    ).send_async
   end
 
   private

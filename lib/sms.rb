@@ -8,6 +8,10 @@ class Sms
     @message = message
   end
 
+  def send_async
+    SmsJob.new.async.perform(self)
+  end
+
   def send!
     recipients.each do |user|
       client.messages.create(
