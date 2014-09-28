@@ -1,13 +1,15 @@
 class Door
-  def self.open!
+  def self.open!(actor: nil)
     core.function("buzz", "4")
+    Event.create(type: 'door_open', actor: actor) if actor
   end
 
   def self.ring
     Sms.new(
       to: User.resident,
-      message: "Someone just rang the doorbell"
+      message: "Someone just rang the doorbell. Should I let them in?"
     ).send_async
+    Event.create(type: 'doorbell_ring')
   end
 
   private

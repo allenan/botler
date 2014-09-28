@@ -14,21 +14,21 @@ Butler::App.controllers :twilio do
 
   post :voice do
     if @user.resident?
-      p "it's a resident"
-      Door.open!
+      Door.open!(actor: @user)
     elsif @user.guest?
-      p "it's a guest"
-      Door.open!
-      Sms.new(to: User.resident, message: "#{@user.name} has arrived").send!
+      Door.open!(actor: @user)
+      Sms.new(
+        to: User.resident,
+        message: "#{@user.name} has arrived"
+      ).send_async
     else
-      p "it's unknown"
     end
     render :voice
   end
 
   post :sms do
     if @user.resident?
-      result = CommandInterpreter.parse(params['Body'])
+      result = CommandInterpreter.parse(params['Body'], actor: @user)
       Sms.new(to: @user, message: result).send!
     end
     render :sms
