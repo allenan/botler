@@ -2,8 +2,10 @@
 RACK_ENV = ENV['RACK_ENV'] ||= 'development'  unless defined?(RACK_ENV)
 PADRINO_ROOT = File.expand_path('../..', __FILE__) unless defined?(PADRINO_ROOT)
 
-require 'dotenv'
-Dotenv.load
+unless RACK_ENV == 'production'
+  require 'dotenv'
+  Dotenv.load
+end
 
 # Load our dependencies
 require 'rubygems' unless defined?(Gem)
