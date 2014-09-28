@@ -10,6 +10,7 @@ class Door
       message: "Someone just rang the doorbell. Should I let them in?"
     ).send_async
     Event.create(type: 'doorbell_ring')
+    DoorObserverJob.new.async.perform
   end
 
   private

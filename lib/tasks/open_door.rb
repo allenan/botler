@@ -8,6 +8,9 @@ module Tasks
     def perform
       if any_doorbell_rings?
         Door.open!(actor: @actor)
+        return "Ok, I went ahead and let them in"
+      else
+        return "Excuse me?"
       end
     end
 
