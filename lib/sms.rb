@@ -21,8 +21,8 @@ class Sms
   private
 
   def client
-    account_sid = 'AC9085c0270f19e3166c63f91684a9810a'
-    auth_token = 'ee1dbfbcfb66d1455932eaa25f6ff049'
+    account_sid = ENV['TWILIO_ACCOUNT_SID']
+    auth_token = ENV['TWILIO_AUTH_TOKEN']
 
     @client ||= Twilio::REST::Client.new account_sid, auth_token
   end

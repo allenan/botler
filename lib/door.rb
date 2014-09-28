@@ -3,6 +3,13 @@ class Door
     core.function("buzz", "4")
   end
 
+  def self.ring
+    Sms.new(
+      to: User.resident,
+      message: "Someone just rang the doorbell"
+    ).send!
+  end
+
   private
 
   def self.core
