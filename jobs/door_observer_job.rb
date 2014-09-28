@@ -9,7 +9,7 @@ class DoorObserverJob
         if door_open_event
           actor = door_open_event.actor
           Sms.new(
-            to: all_residents - actor,
+            to: all_residents_except(actor),
             message: "#{actor.name} opened the door"
           ).send!
           break
@@ -32,7 +32,7 @@ class DoorObserverJob
     ).first
   end
 
-  def all_residents
-    Array(User.resident)
+  def all_residents_except(actor)
+    Array(User.resident) - Array(actor)
   end
 end
